@@ -4,38 +4,85 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>5000.live</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&display=swap" rel="stylesheet">
+
 <style>
-    body {
-        margin: 0;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #ffffff;
-        font-family: Arial, sans-serif;
-        text-align: center;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    font-family: 'Inter', sans-serif;
+    background: radial-gradient(circle at 30% 30%, #1a1f2b, #0d1117 60%);
+    color: white;
+    overflow: hidden;
+}
+
+/* Top left brand */
+.brand {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 2px;
+    opacity: 0.8;
+}
+
+/* Center content */
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+h1 {
+    font-size: 72px;
+    font-weight: 800;
+    background: linear-gradient(90deg, #00f5ff, #8a2be2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+
+.beta {
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    opacity: 0.8;
+    margin-bottom: 30px;
+}
+
+.contact {
+    font-size: 15px;
+    opacity: 0.6;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
     h1 {
         font-size: 48px;
-        margin: 0;
     }
-    .beta {
-        font-size: 18px;
-        color: #888;
-        margin-top: 8px;
-    }
-    .contact {
-        margin-top: 20px;
-        font-size: 14px;
-        color: #444;
-    }
+}
 </style>
 </head>
 <body>
-    <div>
-        <h1>5000.live</h1>
-        <div class="beta">(Beta – Testing Phase)</div>
-        <div class="contact">For Contact: Admooob@gmail.com</div>
-    </div>
+
+<div class="brand">5000.live</div>
+
+<div class="container">
+    <h1>5000.live</h1>
+    <div class="beta">(Beta – Testing Phase)</div>
+    <div class="contact">For Contact: Admooob@gmail.com</div>
+</div>
+
 </body>
 </html>
