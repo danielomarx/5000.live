@@ -5,84 +5,277 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>5000.live</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230d1117'/><text y='78' x='50' text-anchor='middle' font-size='72' font-family='Arial,sans-serif' font-weight='bold' fill='%2300f5ff'>$</text></svg>">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
-* {
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    height: 100vh;
-    font-family: 'Inter', sans-serif;
-    background: radial-gradient(circle at 30% 30%, #1a1f2b, #0d1117 60%);
-    color: white;
-    overflow: hidden;
+:root {
+    --cyan: #00f5ff;
+    --purple: #8a2be2;
+    --bg-dark: #0d1117;
 }
 
-/* Top left brand */
+body {
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-dark);
+    color: white;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Animated background orbs */
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.18;
+    animation: drift 12s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+.orb-1 {
+    width: 500px;
+    height: 500px;
+    background: var(--cyan);
+    top: -150px;
+    left: -100px;
+    animation-duration: 14s;
+}
+
+.orb-2 {
+    width: 420px;
+    height: 420px;
+    background: var(--purple);
+    bottom: -120px;
+    right: -80px;
+    animation-duration: 10s;
+    animation-delay: -4s;
+}
+
+.orb-3 {
+    width: 250px;
+    height: 250px;
+    background: #5a12d4;
+    top: 40%;
+    left: 60%;
+    animation-duration: 16s;
+    animation-delay: -7s;
+}
+
+@keyframes drift {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(30px, 40px) scale(1.08); }
+}
+
+/* Grid overlay */
+body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+}
+
+/* Brand top-left */
 .brand {
     position: absolute;
-    top: 30px;
-    left: 40px;
+    top: 28px;
+    left: 36px;
     font-weight: 600;
-    font-size: 18px;
-    letter-spacing: 2px;
-    opacity: 0.8;
+    font-size: 15px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.45;
+    z-index: 10;
+}
+
+/* Status pill top-right */
+.status {
+    position: absolute;
+    top: 28px;
+    right: 36px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.55;
+    z-index: 10;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #00e676;
+    box-shadow: 0 0 8px #00e676;
+    animation: pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.5; transform: scale(0.85); }
 }
 
 /* Center content */
 .container {
-    height: 100%;
+    position: relative;
+    z-index: 10;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    gap: 0;
+    animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
 
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 h1 {
-    font-size: 72px;
+    font-size: 80px;
     font-weight: 800;
-    background: linear-gradient(90deg, #00f5ff, #8a2be2);
+    line-height: 1;
+    background: linear-gradient(90deg, var(--cyan) 0%, #a855f7 55%, var(--purple) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 20px;
+    background-clip: text;
+    letter-spacing: -2px;
+    margin-bottom: 14px;
 }
 
-.beta {
-    font-size: 20px;
-    font-weight: 300;
-    letter-spacing: 1px;
-    opacity: 0.8;
-    margin-bottom: 30px;
-}
-
-.contact {
+.tagline {
     font-size: 15px;
-    opacity: 0.6;
-    letter-spacing: 1px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.45;
+    margin-bottom: 48px;
 }
 
-@media (max-width: 768px) {
-    h1 {
-        font-size: 48px;
-    }
+/* Divider */
+.divider {
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--cyan), var(--purple));
+    border-radius: 2px;
+    margin-bottom: 48px;
+    opacity: 0.6;
+}
+
+/* Contact card */
+.contact-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 22px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 50px;
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(10px);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    color: rgba(255,255,255,0.55);
+    transition: border-color 0.3s, color 0.3s, background 0.3s;
+    text-decoration: none;
+}
+
+.contact-card:hover {
+    border-color: rgba(0, 245, 255, 0.35);
+    color: rgba(255,255,255,0.85);
+    background: rgba(0, 245, 255, 0.06);
+}
+
+.contact-card svg {
+    opacity: 0.6;
+    flex-shrink: 0;
+}
+
+/* Beta badge */
+.beta-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: linear-gradient(90deg, rgba(0,245,255,0.12), rgba(138,43,226,0.12));
+    border: 1px solid rgba(0,245,255,0.2);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 24px;
+}
+
+/* Footer */
+.footer {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    opacity: 0.25;
+    text-transform: uppercase;
+    z-index: 10;
+    white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+    h1 { font-size: 52px; letter-spacing: -1px; }
+    .brand, .status { top: 20px; }
+    .brand { left: 20px; }
+    .status { right: 20px; }
+
 }
 </style>
 </head>
 <body>
 
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
 <div class="brand">5000.live</div>
 
-<div class="container">
-    <h1>5000.live</h1>
-    <div class="beta">(Beta)</div>
-    <div class="contact">For Contact: Admooob@gmail.com</div>
+<div class="status">
+    <span class="status-dot"></span>
+    Live
 </div>
+
+<div class="container">
+    <div class="beta-badge">Beta</div>
+    <h1>5000.live</h1>
+    <div class="tagline">Coming Soon</div>
+    <div class="divider"></div>
+    <a href="mailto:contact@5000.live" class="contact-card">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        </svg>
+        contact@5000.live
+    </a>
+</div>
+
+<div class="footer">© 2026 5000.live — All rights reserved</div>
 
 </body>
 </html>
