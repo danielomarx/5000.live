@@ -52,7 +52,7 @@ export default function Hero() {
           variants={FADE_UP}
           initial="hidden"
           animate="show"
-          className="font-display font-black leading-[0.95] tracking-tight mb-8"
+          className="font-display font-black leading-tight tracking-tight mb-8"
         >
           <span className="block text-[clamp(48px,8vw,96px)] text-white">
             {t('headlineLine1')}
@@ -112,7 +112,9 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-start sm:items-center gap-5"
         >
           <a
-            href="#contact"
+            href="https://wa.me/905346639145"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gold text-bg font-bold text-lg transition-all duration-300 hover:brightness-110 glow-gold glow-gold-hover animate-pulse-glow"
           >
             {t('cta')}

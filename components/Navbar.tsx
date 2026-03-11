@@ -28,10 +28,10 @@ export default function Navbar() {
   }
 
   const navLinks = [
-    { key: 'howItWorks', href: '#how-it-works' },
-    { key: 'whatsIncluded', href: '#included' },
-    { key: 'faq', href: '#faq' },
-    { key: 'contact', href: '#contact' },
+    { key: 'howItWorks', href: '#how-it-works', external: false },
+    { key: 'whatsIncluded', href: '#included', external: false },
+    { key: 'faq', href: '#faq', external: false },
+    { key: 'contact', href: 'https://wa.me/905346639145', external: true },
   ] as const
 
   return (
@@ -56,10 +56,11 @@ export default function Navbar() {
 
           {/* Desktop nav links */}
           <ul className="hidden md:flex items-center gap-8 list-none">
-            {navLinks.map(({ key, href }) => (
+            {navLinks.map(({ key, href, external }) => (
               <li key={key}>
                 <a
                   href={href}
+                  {...(external && { target: '_blank', rel: 'noopener noreferrer' })}
                   className="text-sm font-medium text-muted hover:text-white transition-colors duration-200"
                 >
                   {t(key)}
@@ -92,7 +93,9 @@ export default function Navbar() {
 
             {/* CTA */}
             <a
-              href="#contact"
+              href="https://wa.me/905346639145"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden md:inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gold text-bg font-bold text-sm transition-all duration-200 hover:brightness-110 shadow-[0_0_20px_rgba(245,166,35,0.25)] hover:shadow-[0_0_35px_rgba(245,166,35,0.45)]"
             >
               {t('cta')}
@@ -112,10 +115,11 @@ export default function Navbar() {
         {/* Mobile menu */}
         {mobileOpen && (
           <div className="md:hidden py-4 border-t border-white/[0.06]">
-            {navLinks.map(({ key, href }) => (
+            {navLinks.map(({ key, href, external }) => (
               <a
                 key={key}
                 href={href}
+                {...(external && { target: '_blank', rel: 'noopener noreferrer' })}
                 onClick={() => setMobileOpen(false)}
                 className="block py-3 text-sm text-muted hover:text-white transition-colors"
               >
@@ -123,7 +127,9 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="#contact"
+              href="https://wa.me/905346639145"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setMobileOpen(false)}
               className="mt-4 flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-gold text-bg font-bold text-sm"
             >

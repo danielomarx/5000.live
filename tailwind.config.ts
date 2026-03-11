@@ -17,9 +17,9 @@ const config: Config = {
         border: 'rgba(255,255,255,0.08)',
       },
       fontFamily: {
-        display: ['var(--font-syne)', 'sans-serif'],
-        body: ['var(--font-dm-sans)', 'sans-serif'],
-        mono: ['var(--font-space-mono)', 'monospace'],
+        display: ['var(--font-display)', 'sans-serif'],
+        body: ['var(--font-body)', 'sans-serif'],
+        mono: ['var(--font-mono)', 'monospace'],
       },
       animation: {
         'pulse-glow': 'pulseGlow 2.5s ease-in-out infinite',

@@ -6,14 +6,23 @@
   html {
     scroll-behavior: smooth;
     background-color: #07091A;
+    font-size: 16px;
   }
 
   body {
     background-color: #07091A;
     color: #ffffff;
     overflow-x: hidden;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4 {
+    line-height: 1.25;
+    letter-spacing: -0.02em;
   }
 
   ::selection {

@@ -1,31 +1,31 @@
 import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
-import { Syne, DM_Sans, Space_Mono, IBM_Plex_Sans_Arabic } from 'next/font/google'
+import { Plus_Jakarta_Sans, Inter, JetBrains_Mono, IBM_Plex_Sans_Arabic } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import '@/app/globals.css'
 
 const locales = ['en', 'ar']
 
 // ── Fonts ──────────────────────────────────────────────────────────────────
-const syne = Syne({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  weight: ['700', '800'],
-  variable: '--font-syne',
+  weight: ['600', '700', '800'],
+  variable: '--font-display',
   display: 'swap',
 })
 
-const dmSans = DM_Sans({
+const inter = Inter({
   subsets: ['latin'],
   weight: ['400', '500', '600'],
-  variable: '--font-dm-sans',
+  variable: '--font-body',
   display: 'swap',
 })
 
-const spaceMono = Space_Mono({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   weight: ['400', '700'],
-  variable: '--font-space-mono',
+  variable: '--font-mono',
   display: 'swap',
 })
 
@@ -101,7 +101,7 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       dir={isRtl ? 'rtl' : 'ltr'}
-      className={`${syne.variable} ${dmSans.variable} ${spaceMono.variable} ${ibmPlexArabic.variable}`}
+      className={`${plusJakarta.variable} ${inter.variable} ${jetbrainsMono.variable} ${ibmPlexArabic.variable}`}
     >
       <head>
         <script

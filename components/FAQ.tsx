@@ -34,7 +34,7 @@ export default function FAQ() {
           <p className="text-sm font-semibold tracking-widest uppercase text-cyan mb-3">
             {t('tag')}
           </p>
-          <h2 className="font-display font-black text-4xl sm:text-5xl text-white tracking-tight">
+          <h2 className="font-display font-black text-4xl sm:text-5xl text-white tracking-tight leading-tight">
             {t('title')}
           </h2>
         </motion.div>

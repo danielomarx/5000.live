@@ -62,7 +62,9 @@ export default function FinalCTA() {
           viewport={{ once: true }}
         >
           <a
-            href="mailto:contact@5000.live"
+            href="https://wa.me/905346639145"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex items-center gap-3 px-10 py-5 rounded-full bg-gold text-bg font-bold text-xl transition-all duration-300 hover:brightness-110 animate-pulse-glow hover:shadow-[0_0_60px_rgba(245,166,35,0.6)]"
           >
             {t('button')}
