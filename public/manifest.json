@@ -1,0 +1,19 @@
+{
+  "name": "5000.live — Native Mobile App in 4 Weeks for $5,000",
+  "short_name": "5000.live",
+  "description": "Get your custom native iOS & Android mobile app built and launched in 4 weeks for $5,000. Full refund if we miss the deadline.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07091A",
+  "theme_color": "#07091A",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "lang": "en",
+  "dir": "ltr"
+}

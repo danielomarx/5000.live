@@ -57,7 +57,7 @@ export default function HowItWorks() {
                 whileInView="show"
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ delay: i * 0.07 }}
-                className="relative flex gap-6 rtl:flex-row-reverse"
+                className="relative flex gap-6"
               >
                 {/* Timeline dot */}
                 <div className="relative z-10 flex-shrink-0 mt-4">

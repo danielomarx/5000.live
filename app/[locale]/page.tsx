@@ -1,3 +1,4 @@
+import { setRequestLocale } from 'next-intl/server'
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import Problem from '@/components/Problem'
@@ -10,7 +11,12 @@ import FAQ from '@/components/FAQ'
 import FinalCTA from '@/components/FinalCTA'
 import Footer from '@/components/Footer'
 
-export default function HomePage() {
+export default function HomePage({
+  params: { locale },
+}: {
+  params: { locale: string }
+}) {
+  setRequestLocale(locale)
   return (
     <>
       <Navbar />

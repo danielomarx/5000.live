@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+
+Sitemap: https://5000.live/sitemap.xml
+Host: 5000.live
