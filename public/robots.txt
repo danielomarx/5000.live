@@ -1,3 +1,4 @@
+# ── Search engine bots ──────────────────────────────────────────────────────
 User-agent: *
 Allow: /
 Disallow: /api/
@@ -13,5 +14,56 @@ Allow: /
 Disallow: /api/
 Disallow: /_next/
 
+User-agent: Applebot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# ── AI crawlers — explicitly allowed for AI search results ──────────────────
+# OpenAI / ChatGPT
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Anthropic / Claude
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Google AI (Gemini / AI Overviews)
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Gemini
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# Internet Archive
+User-agent: ia_archiver
+Allow: /
+
+# ── Sitemap ─────────────────────────────────────────────────────────────────
 Sitemap: https://5000.live/sitemap.xml
 Host: 5000.live
